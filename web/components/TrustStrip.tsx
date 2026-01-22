@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/utils/animations";
 
 export default function TrustStrip() {
     return (
@@ -6,23 +10,29 @@ export default function TrustStrip() {
                 <p className="text-center text-sm font-medium text-primary-400 mb-8 uppercase tracking-widest">
                     Wij werken met topmerken
                 </p>
-                <div className="flex flex-wrap justify-center items-center gap-12 sm:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    variants={staggerContainer}
+                    className="flex flex-wrap justify-center items-center gap-12 sm:gap-16"
+                >
                     {/* Brand 1: Sigma */}
-                    <div className="h-8 relative w-32">
+                    <motion.div variants={fadeInUp} className="h-8 relative w-32 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
                         {/* Text Fallback for logo */}
                         <span className="text-2xl font-bold font-display text-primary-800">SIGMA</span>
-                    </div>
+                    </motion.div>
 
                     {/* Brand 2: Sikkens */}
-                    <div className="h-8 relative w-32">
+                    <motion.div variants={fadeInUp} className="h-8 relative w-32 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
                         <span className="text-2xl font-bold font-display text-primary-800">Sikkens</span>
-                    </div>
+                    </motion.div>
 
                     {/* Brand 3: Wijzonol */}
-                    <div className="h-8 relative w-32">
+                    <motion.div variants={fadeInUp} className="h-8 relative w-32 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
                         <span className="text-2xl font-bold font-display text-primary-800">Wijzonol</span>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             </div>
         </section>
     );

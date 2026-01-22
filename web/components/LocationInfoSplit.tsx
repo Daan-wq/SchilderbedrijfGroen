@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { MapPin, Mail, Phone, Clock } from "lucide-react";
 import clsx from "clsx";
+import { motion } from "framer-motion";
+import { fadeInUp, fadeInLeft, staggerContainer } from "@/utils/animations";
 
 interface LocationInfoSplitProps {
     backgroundColor?: "white" | "primary-50" | "off-white";
@@ -9,7 +13,6 @@ interface LocationInfoSplitProps {
 export default function LocationInfoSplit({ backgroundColor = "white" }: LocationInfoSplitProps) {
     // Encoded address for Google Maps iframe
     const address = "Struweelstraat 23, 8043 VN Zwolle";
-    const mapSrc = `https://www.google.com/maps/embed/v1/place?key=REPLACE_WITH_YOUR_API_KEY&q=${encodeURIComponent(address)}`;
 
     // Using a simpler embed approach that doesn't strictly require an API key for basic view if needed, 
     // but the standard way often uses the share embed link.
@@ -24,7 +27,13 @@ export default function LocationInfoSplit({ backgroundColor = "white" }: Locatio
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24 items-center">
 
                 {/* Left Column (Map) */}
-                <div className="relative aspect-video md:aspect-[4/3] rounded-2xl overflow-hidden border border-primary-100 shadow-inner bg-primary-50">
+                <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    variants={fadeInLeft}
+                    className="relative aspect-video md:aspect-[4/3] rounded-2xl overflow-hidden border border-primary-100 shadow-inner bg-primary-50"
+                >
                     <iframe
                         src={mapEmbedSrc}
                         width="100%"
@@ -35,14 +44,19 @@ export default function LocationInfoSplit({ backgroundColor = "white" }: Locatio
                         referrerPolicy="no-referrer-when-downgrade"
                         title="Locatie van Schildersbedrijf Groen"
                     ></iframe>
-                </div>
+                </motion.div>
 
                 {/* Right Column (Info) */}
-                <div>
-                    <h2 className="text-3xl font-bold text-primary-950 mb-8">Onze Gegegevens</h2>
+                <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    variants={staggerContainer}
+                >
+                    <motion.h2 variants={fadeInUp} className="text-3xl font-bold text-primary-950 mb-8">Onze Gegegevens</motion.h2>
 
                     <div className="space-y-6">
-                        <div className="flex gap-4 items-start">
+                        <motion.div variants={fadeInUp} className="flex gap-4 items-start">
                             <div className="h-10 w-10 bg-primary-50 rounded-full flex items-center justify-center text-primary-600 flex-shrink-0">
                                 <MapPin className="h-5 w-5" />
                             </div>
@@ -51,9 +65,9 @@ export default function LocationInfoSplit({ backgroundColor = "white" }: Locatio
                                 <p className="text-primary-600">Struweelstraat 23</p>
                                 <p className="text-primary-600">8043 VN Zwolle</p>
                             </div>
-                        </div>
+                        </motion.div>
 
-                        <div className="flex gap-4 items-start">
+                        <motion.div variants={fadeInUp} className="flex gap-4 items-start">
                             <div className="h-10 w-10 bg-primary-50 rounded-full flex items-center justify-center text-primary-600 flex-shrink-0">
                                 <Mail className="h-5 w-5" />
                             </div>
@@ -63,9 +77,9 @@ export default function LocationInfoSplit({ backgroundColor = "white" }: Locatio
                                     info@schildersbedrijfgroen.net
                                 </a>
                             </div>
-                        </div>
+                        </motion.div>
 
-                        <div className="flex gap-4 items-start">
+                        <motion.div variants={fadeInUp} className="flex gap-4 items-start">
                             <div className="h-10 w-10 bg-primary-50 rounded-full flex items-center justify-center text-primary-600 flex-shrink-0">
                                 <Phone className="h-5 w-5" />
                             </div>
@@ -75,9 +89,9 @@ export default function LocationInfoSplit({ backgroundColor = "white" }: Locatio
                                     06 1234 5678
                                 </a>
                             </div>
-                        </div>
+                        </motion.div>
 
-                        <div className="flex gap-4 items-start">
+                        <motion.div variants={fadeInUp} className="flex gap-4 items-start">
                             <div className="h-10 w-10 bg-primary-50 rounded-full flex items-center justify-center text-primary-600 flex-shrink-0">
                                 <Clock className="h-5 w-5" />
                             </div>
@@ -85,11 +99,11 @@ export default function LocationInfoSplit({ backgroundColor = "white" }: Locatio
                                 <h3 className="font-bold text-primary-900">Bereikbaarheid</h3>
                                 <p className="text-primary-600">Maandag t/m Vrijdag: 08:00 - 17:00</p>
                             </div>
-                        </div>
+                        </motion.div>
 
                     </div>
 
-                    <div className="mt-8">
+                    <motion.div variants={fadeInUp} className="mt-8">
                         <Link
                             href="https://maps.google.com"
                             target="_blank"
@@ -97,8 +111,8 @@ export default function LocationInfoSplit({ backgroundColor = "white" }: Locatio
                         >
                             Route plannen
                         </Link>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
 
             </div>
         </section>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { NavLink } from "@/types/content";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks: NavLink[] = [
     { label: "Home", href: "/" },
@@ -53,12 +54,14 @@ export default function Navbar() {
 
                 {/* Slot 3: CTA & Mobile Toggle */}
                 <div className="flex items-center gap-4">
-                    <Link
-                        href="/contact"
-                        className="hidden md:inline-flex items-center justify-center px-6 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-primary-600 hover:bg-primary-700 transition-colors shadow-sm"
-                    >
-                        Offerte Aanvragen
-                    </Link>
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                        <Link
+                            href="/contact"
+                            className="hidden md:inline-flex items-center justify-center px-6 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-primary-600 hover:bg-primary-700 transition-colors shadow-sm"
+                        >
+                            Offerte Aanvragen
+                        </Link>
+                    </motion.div>
 
                     {/* Mobile Menu Button */}
                     <button
@@ -71,31 +74,39 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Menu */}
-            {isOpen && (
-                <div className="md:hidden bg-white border-t border-primary-100 absolute w-full left-0 top-20 shadow-lg">
-                    <div className="px-4 pt-2 pb-6 space-y-2">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                onClick={() => setIsOpen(false)}
-                                className="block px-3 py-3 rounded-md text-base font-medium text-primary-700 hover:text-primary-900 hover:bg-primary-50"
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
-                        <div className="pt-4 mt-4 border-t border-primary-100">
-                            <Link
-                                href="/contact"
-                                onClick={() => setIsOpen(false)}
-                                className="block w-full text-center px-4 py-3 rounded-md text-base font-bold text-white bg-primary-600 hover:bg-primary-700"
-                            >
-                                Vrijblijvende Offerte
-                            </Link>
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="md:hidden bg-white border-t border-primary-100 absolute w-full left-0 top-20 shadow-lg overflow-hidden"
+                    >
+                        <div className="px-4 pt-2 pb-6 space-y-2">
+                            {navLinks.map((link) => (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    onClick={() => setIsOpen(false)}
+                                    className="block px-3 py-3 rounded-md text-base font-medium text-primary-700 hover:text-primary-900 hover:bg-primary-50"
+                                >
+                                    {link.label}
+                                </Link>
+                            ))}
+                            <div className="pt-4 mt-4 border-t border-primary-100">
+                                <Link
+                                    href="/contact"
+                                    onClick={() => setIsOpen(false)}
+                                    className="block w-full text-center px-4 py-3 rounded-md text-base font-bold text-white bg-primary-600 hover:bg-primary-700"
+                                >
+                                    Vrijblijvende Offerte
+                                </Link>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            )}
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </nav>
     );
 }

@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import clsx from "clsx";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/utils/animations";
 
 interface ProcessContainerProps {
     backgroundColor?: "white" | "primary-50" | "off-white";
@@ -37,29 +41,42 @@ export default function ProcessContainer({ backgroundColor = "primary-50" }: Pro
                     <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-12 lg:gap-24">
 
                         {/* Left Column */}
-                        <div>
-                            <span className="block text-primary-600 font-bold uppercase tracking-wide text-sm mb-4">
+                        <motion.div
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true }}
+                            variants={staggerContainer}
+                        >
+                            <motion.span variants={fadeInUp} className="block text-primary-600 font-bold uppercase tracking-wide text-sm mb-4">
                                 Werkwijze
-                            </span>
-                            <h2 className="text-3xl md:text-4xl font-bold text-primary-950 mb-6">
+                            </motion.span>
+                            <motion.h2 variants={fadeInUp} className="text-3xl md:text-4xl font-bold text-primary-950 mb-6">
                                 Zo gaan wij te werk.
-                            </h2>
-                            <p className="text-lg text-primary-600 mb-8 leading-relaxed">
+                            </motion.h2>
+                            <motion.p variants={fadeInUp} className="text-lg text-primary-600 mb-8 leading-relaxed">
                                 Van het eerste contact tot de oplevering: wij houden van korte lijnen en heldere afspraken.
-                            </p>
-                            <Link
-                                href="/contact"
-                                className="inline-flex items-center text-primary-900 font-bold border-b-2 border-primary-300 hover:border-primary-600 transition-all group"
-                            >
-                                Maak een afspraak
-                                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                            </Link>
-                        </div>
+                            </motion.p>
+                            <motion.div variants={fadeInUp}>
+                                <Link
+                                    href="/contact"
+                                    className="inline-flex items-center text-primary-900 font-bold border-b-2 border-primary-300 hover:border-primary-600 transition-all group"
+                                >
+                                    Maak een afspraak
+                                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                                </Link>
+                            </motion.div>
+                        </motion.div>
 
                         {/* Right Column (Steps) */}
-                        <div className="space-y-8">
+                        <motion.div
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true }}
+                            variants={staggerContainer}
+                            className="space-y-8"
+                        >
                             {steps.map((step, idx) => (
-                                <div key={idx} className="flex gap-6 sm:gap-8">
+                                <motion.div key={idx} variants={fadeInUp} className="flex gap-6 sm:gap-8">
                                     <span className="flex-shrink-0 text-4xl sm:text-5xl font-display font-bold text-primary-200 select-none">
                                         0{idx + 1}
                                     </span>
@@ -67,9 +84,9 @@ export default function ProcessContainer({ backgroundColor = "primary-50" }: Pro
                                         <h3 className="text-xl font-bold text-primary-900 mb-2">{step.title}</h3>
                                         <p className="text-primary-600 leading-relaxed">{step.description}</p>
                                     </div>
-                                </div>
+                                </motion.div>
                             ))}
-                        </div>
+                        </motion.div>
 
                     </div>
                 </div>

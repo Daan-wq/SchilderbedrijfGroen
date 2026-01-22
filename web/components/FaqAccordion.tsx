@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
+import { fadeInUp, staggerContainer } from "@/utils/animations";
 
 const faqs = [
     {
@@ -38,13 +39,29 @@ export default function FaqAccordion({ backgroundColor = "white" }: FaqAccordion
             "bg-off-white": backgroundColor === "off-white"
         })}>
             <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold text-primary-950">Veelgestelde vragen</h2>
-                </div>
+                <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    variants={staggerContainer}
+                    className="text-center mb-12"
+                >
+                    <motion.h2 variants={fadeInUp} className="text-3xl font-bold text-primary-950">Veelgestelde vragen</motion.h2>
+                </motion.div>
 
-                <div className="space-y-4">
+                <motion.div
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                    variants={staggerContainer}
+                    className="space-y-4"
+                >
                     {faqs.map((faq, idx) => (
-                        <div key={idx} className="border border-primary-100 rounded-xl overflow-hidden">
+                        <motion.div
+                            key={idx}
+                            variants={fadeInUp}
+                            className="border border-primary-100 rounded-xl overflow-hidden"
+                        >
                             <button
                                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
                                 className="w-full flex items-center justify-between p-6 bg-white hover:bg-primary-50 transition-colors text-left"
@@ -70,9 +87,9 @@ export default function FaqAccordion({ backgroundColor = "white" }: FaqAccordion
                                     </motion.div>
                                 )}
                             </AnimatePresence>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

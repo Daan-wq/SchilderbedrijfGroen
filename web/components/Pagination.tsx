@@ -1,10 +1,20 @@
+"use client";
+
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeInUp } from "@/utils/animations";
 
 export default function Pagination() {
     return (
         <section className="w-full bg-white pb-24">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-2">
+            <motion.div
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+                className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-2"
+            >
 
                 <button disabled className="p-2 text-primary-300 cursor-not-allowed">
                     <ChevronLeft className="h-5 w-5" />
@@ -33,7 +43,7 @@ export default function Pagination() {
                     <ChevronRight className="h-5 w-5" />
                 </button>
 
-            </div>
+            </motion.div>
         </section>
     );
 }
