@@ -16,7 +16,7 @@ const faqs = [
         answer: "Wij zijn voornamelijk actief in Zwolle en de directe omgeving (o.a. Hattem, Dalfsen, Kampen). Woont u iets verder weg? Neem gerust contact op, dan kijken we naar de mogelijkheden."
     },
     {
-        question: "Geriene, geven jullie garantie op het schilderwerk?",
+        question: "Jan, geven jullie garantie op het schilderwerk?",
         answer: "Zeker. Wij staan achter onze kwaliteit. Op buitenschilderwerk geven wij standaard garantie, afhankelijk van de staat van de ondergrond. Dit wordt duidelijk vermeld in de offerte."
     },
     {
