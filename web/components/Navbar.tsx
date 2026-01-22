@@ -25,18 +25,29 @@ export default function Navbar() {
                 {/* Slot 1: Brand */}
                 <div className="flex-shrink-0">
                     <Link href="/" className="flex items-center gap-3">
-                        <div className="relative h-12 w-12 sm:h-14 sm:w-14">
+                        <div className="relative h-12 w-12">
                             <Image
-                                src="/logo.png"
-                                alt="Schildersbedrijf Groen Logo"
+                                src="/images/logo.jpg"
+                                alt="Logo"
                                 fill
                                 className="object-contain"
                                 priority
                             />
                         </div>
-                        <span className="text-2xl font-bold text-primary-900 hidden sm:block tracking-tight">
-                            Schildersbedrijf Groen
-                        </span>
+                        <div className="flex items-center gap-2">
+                            <span className="text-xl sm:text-2xl font-bold text-primary-900 tracking-tight">
+                                Schildersbedrijf
+                            </span>
+                            <div className="relative h-8 w-20 sm:h-10 sm:w-24">
+                                <Image
+                                    src="/images/groen.png"
+                                    alt="Groen"
+                                    fill
+                                    className="object-contain"
+                                    priority
+                                />
+                            </div>
+                        </div>
                     </Link>
                 </div>
 
