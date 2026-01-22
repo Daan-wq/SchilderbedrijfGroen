@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+web/node_modules/
+
+# Next.js
+.next/
+web/.next/
+
+# Production
+build/
+web/build/
+dist/
+web/dist/
+
+# Env files
+.env*
+web/.env*
+
+# Vercel
+.vercel/
+web/.vercel/
+
+# Misc
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+.agent/
+.gemini/
+.windsurf/
+brain/
+implementation_plan.md
+walkthrough.md
+task.md
