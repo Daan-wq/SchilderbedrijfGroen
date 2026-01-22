@@ -26,7 +26,7 @@ export default function FeatureStack({ backgroundColor = "primary-50" }: Feature
                     whileInView="show"
                     viewport={{ once: true }}
                     variants={fadeInLeft}
-                    className="sticky top-24"
+                    className="md:sticky md:top-24"
                 >
                     <h2 className="text-3xl sm:text-4xl font-bold text-primary-950 mb-6">
                         Alles onder één dak voor uw woning of bedrijfspand.

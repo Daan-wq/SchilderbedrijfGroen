@@ -46,6 +46,7 @@ export default function ProcessContainer({ backgroundColor = "primary-50" }: Pro
                             whileInView="show"
                             viewport={{ once: true }}
                             variants={staggerContainer}
+                            className="lg:sticky lg:top-24"
                         >
                             <motion.span variants={fadeInUp} className="block text-primary-600 font-bold uppercase tracking-wide text-sm mb-4">
                                 Werkwijze
