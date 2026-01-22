@@ -11,7 +11,7 @@ export default function NieuwsPage() {
         <main>
             <HeroTextOnly
                 title="Nieuws & Advies"
-                subtitle="Inspiratie, tips en wetenswaardigheden van de vakman."
+                text="Inspiratie, tips en wetenswaardigheden van de vakman."
             />
 
             <BlogGrid
