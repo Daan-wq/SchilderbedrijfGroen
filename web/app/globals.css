@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors - Timber Green Palette */
+  --color-primary-50: #f0f9f5;
+  --color-primary-100: #dbf0e5;
+  --color-primary-200: #b9e1cf;
+  --color-primary-300: #8bcab0;
+  --color-primary-400: #5aad8e;
+  --color-primary-500: #389173;
+  --color-primary-600: #27745b;
+  --color-primary-700: #1f5d4a;
+  --color-primary-800: #1b4a3d;
+  --color-primary-900: #14352c;
+
+  /* User requested removal of 950 specific darker shade, 
+     so we map 950 to 900 to keep code working but respect the limit. */
+  --color-primary-950: #14352c;
+  --color-primary-900: #14352c;
+
+  --color-accent: #14352c;
+
+  /* Layout Colors */
+  --color-background: #ffffff;
+  --color-foreground: #14352c;
+  /* Updated to primary-900/950 */
+
+  /* Broken White / Off-White - Warm neutral for variation */
+  --color-off-white: #fafaf9;
+  /* Stone-50-ish */
+
+  /* Typography */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui;
+  --font-display: var(--font-inter), ui-sans-serif, system-ui;
+
+  /* Spacing */
+  --spacing-section-y: 6rem;
+  --spacing-element-y: 1.5rem;
+
+  /* Radii */
+  --radius-sm: 0.125rem;
+  --radius-default: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #14352c;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #14352c;
+  }
+}
