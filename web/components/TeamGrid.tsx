@@ -11,18 +11,6 @@ const teamMembers = [
         role: "Eigenaar & Meesterschilder",
         image: "/placeholders/avatar.png",
         color: "bg-primary-100"
-    },
-    {
-        name: "Peter de Vries",
-        role: "Schilder Binnenwerk",
-        image: "/placeholders/avatar.png",
-        color: "bg-primary-50"
-    },
-    {
-        name: "Mark Jansen",
-        role: "Schilder Buitenwerk",
-        image: "/placeholders/avatar.png",
-        color: "bg-primary-200"
     }
 ];
 
@@ -53,13 +41,13 @@ export default function TeamGrid({ backgroundColor = "white" }: TeamGridProps) {
                     whileInView="show"
                     viewport={{ once: true }}
                     variants={staggerContainer}
-                    className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                    className="flex justify-center"
                 >
                     {teamMembers.map((member, idx) => (
                         <motion.div
                             key={idx}
                             variants={fadeInUp}
-                            className={`rounded-2xl overflow-hidden ${member.color} pt-8 px-8 flex flex-col items-center text-center transition-transform hover:-translate-y-2 duration-300`}
+                            className={`rounded-2xl overflow-hidden ${member.color} pt-8 px-8 flex flex-col items-center text-center transition-transform hover:-translate-y-2 duration-300 max-w-sm w-full`}
                         >
                             <div className="mb-6">
                                 <h3 className="text-xl font-bold text-primary-900">{member.name}</h3>

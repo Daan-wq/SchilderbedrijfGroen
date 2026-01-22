@@ -31,10 +31,13 @@ export default function DarkReviewSection({
 
                     {/* Background Card (Second Review - Exact duplicate structure) */}
                     <div className="bg-white p-6 rounded-xl shadow-xl absolute -top-4 -right-4 md:-top-8 md:-right-8 z-0 transform rotate-6 hidden sm:block opacity-40">
-                        <div className="flex gap-1 mb-4">
-                            {[...Array(5)].map((_, i) => (
-                                <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
-                            ))}
+                        <div className="flex items-center justify-between mb-4">
+                            <div className="flex gap-1">
+                                {[...Array(5)].map((_, i) => (
+                                    <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                                ))}
+                            </div>
+                            <span className="text-xs font-bold text-primary-400">10/10</span>
                         </div>
                         <p className="text-primary-800 text-base md:text-lg font-medium italic mb-6">
                             "Fijn contact en snel geschakeld. Het schilderwerk is superstrak opgeleverd. Wij zijn erg blij met het resultaat!"
@@ -56,21 +59,30 @@ export default function DarkReviewSection({
                         transition={{ type: "spring", stiffness: 300, damping: 20 }}
                         className="bg-white p-6 rounded-xl shadow-2xl relative z-10 transform md:-rotate-2"
                     >
-                        <div className="flex gap-1 mb-4">
-                            {[...Array(5)].map((_, i) => (
-                                <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
-                            ))}
+                        <div className="flex items-center justify-between mb-4">
+                            <div className="flex gap-1">
+                                {[...Array(5)].map((_, i) => (
+                                    <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                                ))}
+                            </div>
+                            <span className="text-sm font-bold text-primary-600">10 / 10</span>
                         </div>
                         <p className={clsx("text-lg font-medium italic mb-6", textColor === "text-white" ? "text-primary-800" : "text-primary-900")}>
                             "Zeer tevreden over het buitenschilderwerk. Duidelijke afspraken en vakmensen over de vloer. Het huis ziet er weer als nieuw uit."
                         </p>
-                        <div className="flex items-center gap-3">
-                            <div className="relative h-10 w-10 rounded-full overflow-hidden bg-primary-100">
-                                <Image src="/placeholders/avatar.png" alt="Klant" fill className="object-cover" />
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                                <div className="relative h-10 w-10 rounded-full overflow-hidden bg-primary-100">
+                                    <Image src="/placeholders/avatar.png" alt="Klant" fill className="object-cover" />
+                                </div>
+                                <div>
+                                    <p className="text-sm font-bold text-primary-900">Fam. Jansen</p>
+                                    <p className="text-xs text-primary-500">Stadshagen, Zwolle</p>
+                                </div>
                             </div>
-                            <div>
-                                <p className="text-sm font-bold text-primary-900">Fam. Jansen</p>
-                                <p className="text-xs text-primary-500">Stadshagen, Zwolle</p>
+                            <div className="text-right">
+                                <p className="text-[10px] uppercase tracking-wider text-primary-300 font-bold">Bron</p>
+                                <p className="text-xs font-bold text-primary-400">offertesonline.nl</p>
                             </div>
                         </div>
                     </motion.div>
@@ -85,17 +97,17 @@ export default function DarkReviewSection({
                     className="text-center md:text-left"
                 >
                     <motion.h2 variants={fadeInUp} className="text-3xl font-bold text-white mb-6">
-                        Klanttevredenheid staat op nummer één.
+                        Een 10/10 op offertesonline.nl
                     </motion.h2>
                     <motion.p variants={fadeInUp} className="text-lg text-primary-200 mb-8 leading-relaxed">
-                        Wij zijn pas tevreden als u dat bent. Dankzij onze jarenlange ervaring en heldere communicatie weet u altijd waar u aan toe bent. Geen verrassingen, alleen vakwerk.
+                        Klanttevredenheid staat bij ons op nummer één. Met een perfecte score op offertesonline.nl laten we zien dat we onze beloftes nakomen: vakwerk, heldere communicatie en een resultaat waar u jarenlang plezier van heeft.
                     </motion.p>
                     <motion.div variants={fadeInUp}>
                         <Link
                             href="/contact"
                             className="inline-flex items-center justify-center px-8 py-3 bg-white text-primary-900 font-bold rounded-full hover:bg-primary-50 transition-colors"
                         >
-                            Plan een kennismaking
+                            Bekijk alle reviews
                         </Link>
                     </motion.div>
                 </motion.div>

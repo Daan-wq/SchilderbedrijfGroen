@@ -55,7 +55,7 @@ export default function BlogGrid({
                                     <div className="relative h-8 w-8 rounded-full overflow-hidden bg-primary-100 ring-2 ring-primary-50">
                                         <Image src="/images/139_3962_r1.jpg" alt="Auteur" fill className="object-cover" />
                                     </div>
-                                    <span className="text-sm font-medium text-primary-600">Geriene Groen</span>
+                                    <span className="text-sm font-medium text-primary-600">Jan Groen</span>
                                 </div>
                             </div>
                         </Link>

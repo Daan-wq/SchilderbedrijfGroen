@@ -63,7 +63,7 @@ export default async function NewsDetailPage({ params }: PageProps) {
 
             <ArticleContainer
                 author={{
-                    name: "Geriene Groen",
+                    name: "Jan Groen",
                     role: "Eigenaar & Vakspecialist",
                     image: "/images/139_3962_r1.jpg"
                 }}

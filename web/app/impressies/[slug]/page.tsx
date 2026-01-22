@@ -68,7 +68,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             {/* 3. Article Container */}
             <ArticleContainer
                 author={{
-                    name: "Geriene Groen",
+                    name: "Jan Groen",
                     role: "Eigenaar & Vakspecialist",
                     image: "/images/139_3962_r1.jpg" // Using an existing image as placeholder for author
                 }}
