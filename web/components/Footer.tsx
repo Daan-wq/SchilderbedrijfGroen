@@ -14,13 +14,23 @@ export default function Footer() {
                         <div className="flex items-center gap-3">
                             <div className="relative h-10 w-10">
                                 <Image
-                                    src="/logo.png"
-                                    alt="Schildersbedrijf Groen"
+                                    src="/images/logo.jpg"
+                                    alt="Logo"
                                     fill
-                                    className="object-contain brightness-0 invert"
+                                    className="object-contain"
                                 />
                             </div>
-                            <span className="text-lg font-bold text-white">Schildersbedrijf Groen</span>
+                            <div className="flex items-center gap-2">
+                                <span className="text-lg font-bold text-white">Schildersbedrijf</span>
+                                <div className="relative h-6 w-16">
+                                    <Image
+                                        src="/images/groen.png"
+                                        alt="Groen"
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
+                            </div>
                         </div>
                         <p className="text-sm text-primary-200 leading-relaxed max-w-xs">
                             Vakmanschap en persoonlijke aandacht. Wij ontzorgen u van kleuradvies tot de laatste afwerking.
