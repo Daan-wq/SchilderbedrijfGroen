@@ -12,6 +12,7 @@ const navLinks: NavLink[] = [
     { label: "Aanpak", href: "/aanpak" },
     { label: "Diensten", href: "/diensten" },
     { label: "Impressies", href: "/impressies" },
+    { label: "Nieuws", href: "/nieuws" },
     { label: "Contact", href: "/contact" },
 ];
 

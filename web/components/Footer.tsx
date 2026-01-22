@@ -45,6 +45,7 @@ export default function Footer() {
                             <li><Link href="/aanpak" className="text-sm hover:text-white transition-colors">Over Ons</Link></li>
                             <li><Link href="/diensten" className="text-sm hover:text-white transition-colors">Diensten</Link></li>
                             <li><Link href="/impressies" className="text-sm hover:text-white transition-colors">Impressies</Link></li>
+                            <li><Link href="/nieuws" className="text-sm hover:text-white transition-colors">Nieuws & Advies</Link></li>
                             <li><Link href="/contact" className="text-sm hover:text-white transition-colors">Contact</Link></li>
                         </ul>
                     </div>
